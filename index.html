@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="https://avatars.githubusercontent.com/u/12345678" alt="Tu Foto" class="profile-img">
+                <div class="floating-icons">
+                    <i class="fab fa-html5"></i>
+                    <i class="fab fa-css3-alt"></i>
+                    <i class="fab fa-js"></i>
+                    <i class="fab fa-react"></i>
+                    <i class="fab fa-node"></i>
+                </div>
+            </div>
+            <h1>¡Hola! Soy <span class="highlight">Tu Nombre</span></h1>
+            <p class="typing-text">Desarrollador Web</p>
+            <div class="hero-buttons">
+                <a href="#proyectos" class="btn primary">Ver Proyectos</a>
+                <a href="#contacto" class="btn secondary">Contactar</a>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="about">
+        <h2>Sobre Mí</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>¡Bienvenido a mi portfolio! Soy un apasionado desarrollador web con experiencia en crear soluciones digitales innovadoras. Me especializo en...</p>
+                <div class="about-details">
+                    <div class="detail">
+                        <i class="fas fa-code"></i>
+                        <h3>Desarrollo Web</h3>
+                        <p>Creación de sitios web modernos y responsivos</p>
+                    </div>
+                    <div class="detail">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Diseño UI/UX</h3>
+                        <p>Interfaces intuitivas y atractivas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects">
+        <h2>Mis Proyectos</h2>
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://source.unsplash.com/600x400/?web,technology" alt="Proyecto 1">
+                    <div class="project-overlay">
+                        <div class="project-tech-stack">
+                            <i class="fab fa-html5"></i>
+                            <i class="fab fa-css3"></i>
+                            <i class="fab fa-js"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Proyecto 1</h3>
+                    <p>Descripción del proyecto...</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>Código</span>
+                        </a>
+                        <a href="#" class="project-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://source.unsplash.com/600x400/?coding,computer" alt="Proyecto 2">
+                    <div class="project-overlay">
+                        <div class="project-tech-stack">
+                            <i class="fab fa-react"></i>
+                            <i class="fab fa-node"></i>
+                            <i class="fab fa-sass"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Proyecto 2</h3>
+                    <p>Descripción del proyecto...</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>Código</span>
+                        </a>
+                        <a href="#" class="project-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades" class="skills">
+        <h2>Mis Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more skill categories as needed -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <h2>Contacto</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>email@ejemplo.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <p>LinkedIn</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <p>GitHub</p>
+                </div>
+            </div>
+            <form id="contact-form" class="contact-form">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit" class="btn primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Tu Nombre - Todos los derechos reservados</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
