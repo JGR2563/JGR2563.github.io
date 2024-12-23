@@ -441,6 +441,16 @@ section::before {
     color: var(--accent-color);
 }
 
+.project-card a {
+    color: #ff6b6b;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.project-card a:hover {
+    color: #f59e0b;
+}
+
 /* Enhanced Hover Effects */
 .project-card {
     transform-style: preserve-3d;
