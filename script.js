@@ -31,6 +31,118 @@ function type() {
 // Start typing effect
 type();
 
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+            if (entry.target.classList.contains('skill-item')) {
+                entry.target.style.animationDelay = `${entry.target.dataset.delay}s`;
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe all animated elements
+document.querySelectorAll('.project-card, .skill-item, .about-content').forEach((el, index) => {
+    el.dataset.delay = index * 0.2;
+    observer.observe(el);
+});
+
+// Form validation and submission
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const submitButton = this.querySelector('button[type="submit"]');
+        
+        try {
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            
+            // Aquí iría la lógica de envío del formulario
+            // Por ahora solo simulamos un delay
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            showNotification('¡Mensaje enviado con éxito! Te contactaré pronto.', 'success');
+            this.reset();
+        } catch (error) {
+            showNotification('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.', 'error');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Enviar';
+        }
+    });
+}
+
+// Notification system
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+        <p>${message}</p>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Header scroll effect
+const header = document.querySelector('.header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        header.classList.remove('scrolled');
+        return;
+    }
+    
+    if (currentScroll > lastScroll) {
+        header.classList.add('hide');
+    } else {
+        header.classList.remove('hide');
+    }
+    
+    if (currentScroll > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+});
+
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
@@ -53,72 +165,19 @@ hamburger.addEventListener('click', () => {
     }
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-            // Close mobile menu if open
-            if (isMenuOpen) {
-                navLinks.style.display = 'none';
-                isMenuOpen = false;
-            }
-        }
-    });
-});
-
-// Form submission handling
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Add your form submission logic here
-        alert('¡Gracias por tu mensaje! Te contactaré pronto.');
-        contactForm.reset();
-    });
-}
-
 // Scroll reveal animation
 window.addEventListener('scroll', reveal);
 
 function reveal() {
-    const reveals = document.querySelectorAll('.about-content, .projects-grid, .skills-container, .contact-content');
-    
-    reveals.forEach(element => {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
         const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
+        const elementTop = reveals[i].getBoundingClientRect().top;
         const elementVisible = 150;
-        
         if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('active');
+            reveals[i].classList.add('active');
+        } else {
+            reveals[i].classList.remove('active');
         }
-    });
+    }
 }
-
-// Header scroll effect
-const header = document.querySelector('.header');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll <= 0) {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        return;
-    }
-    
-    if (currentScroll > lastScroll) {
-        // Scrolling down
-        header.style.transform = 'translateY(-100%)';
-    } else {
-        // Scrolling up
-        header.style.transform = 'translateY(0)';
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-    
-    lastScroll = currentScroll;
-});

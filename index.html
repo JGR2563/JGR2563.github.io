@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portfolio</title>
+    <meta name="description" content="Portfolio profesional de Gabriel Ruñiski - Desarrollador Web y Diseñador UI/UX">
+    <meta name="keywords" content="desarrollo web, diseño UI/UX, frontend, portfolio, Gabriel Ruñiski">
+    <meta name="author" content="Gabriel Ruñiski">
+    <meta property="og:title" content="Portfolio de Gabriel Ruñiski">
+    <meta property="og:description" content="Desarrollador Web y Diseñador UI/UX">
+    <meta property="og:image" content="img/profile.jpg">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <title>Portfolio de Gabriel Ruñiski</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,63 +25,36 @@
                 <li><a href="#sobre-mi">Sobre Mí</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#repositorios">Repositorios</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <div class="hero-image">
-                <img src="https://avatars.githubusercontent.com/u/12345678" alt="Tu Foto" class="profile-img">
-                <div class="floating-icons">
-                    <i class="fab fa-html5"></i>
-                    <i class="fab fa-css3-alt"></i>
-                    <i class="fab fa-js"></i>
-                    <i class="fab fa-react"></i>
-                    <i class="fab fa-node"></i>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>¡Hola! Soy <span class="highlight">Gabriel Ruñiski</span></h1>
+                <p class="typing-text">Desarrollador Web</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn primary">Ver Proyectos</a>
+                    <a href="cv.pdf" class="btn secondary" download>Descargar CV</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/tu-perfil" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/JGR2563" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/tu-usuario" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            <h1>¡Hola! Soy <span class="highlight">Gabriel Ruñiski</span></h1>
-            <p class="typing-text">Desarrollador Web</p>
-            <div class="hero-buttons">
-                <a href="#proyectos" class="btn primary">Ver Proyectos</a>
-                <a href="#contacto" class="btn secondary">Contactar</a>
-            </div>
         </div>
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-    </section>
+    </header>
 
     <!-- About Section -->
     <section id="sobre-mi" class="about">
         <h2>Sobre Mí</h2>
         <div class="about-content">
-            <div class="about-text">
-                <p>¡Bienvenido a mi portfolio! Soy un apasionado desarrollador web con experiencia en crear soluciones digitales innovadoras. Me especializo en...</p>
-                <div class="about-details">
-                    <div class="detail">
-                        <i class="fas fa-code"></i>
-                        <h3>Desarrollo Web</h3>
-                        <p>Creación de sitios web modernos y responsivos</p>
-                    </div>
-                    <div class="detail">
-                        <i class="fas fa-paint-brush"></i>
-                        <h3>Diseño UI/UX</h3>
-                        <p>Interfaces intuitivas y atractivas</p>
-                    </div>
-                </div>
-            </div>
+            <img src="https://via.placeholder.com/150" alt="Gabriel Ruñiski" class="profile-img">
+            <p>Soy un apasionado desarrollador web con experiencia en crear soluciones digitales innovadoras.</p>
+            <video controls>
+                <source src="video-intro.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
         </div>
     </section>
 
@@ -82,30 +62,69 @@
     <section id="proyectos" class="projects">
         <h2>Mis Proyectos Ficticios</h2>
         <div class="projects-grid">
-            <div class="project-card">
-                <h3>Fictision</h3>
-                <p>Aplicación de gestión de tareas.</p>
-                <a href="https://github.com/JGR2563/fictision" target="_blank">Ver Proyecto</a>
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-image">
+                    <img src="img/projects/fictision.jpg" alt="Fictision" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Fictision</h3>
+                    <p>Una aplicación moderna de gestión de tareas con características avanzadas de organización y colaboración en tiempo real.</p>
+                    <div class="project-links">
+                        <a href="https://fictision-demo.com" target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="https://github.com/JGR2563/fictision" target="_blank" class="btn-link"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
             </div>
             <div class="project-card">
+                <img src="https://via.placeholder.com/300" alt="TaskMaster" class="project-image">
                 <h3>TaskMaster</h3>
                 <p>Herramienta para la planificación de proyectos.</p>
                 <a href="https://github.com/JGR2563/taskmaster" target="_blank">Ver Proyecto</a>
             </div>
             <div class="project-card">
+                <img src="https://via.placeholder.com/300" alt="WeatherApp" class="project-image">
                 <h3>WeatherApp</h3>
                 <p>Aplicación de pronóstico del tiempo.</p>
                 <a href="https://github.com/JGR2563/weatherapp" target="_blank">Ver Proyecto</a>
             </div>
             <div class="project-card">
+                <img src="https://via.placeholder.com/300" alt="BudgetTracker" class="project-image">
                 <h3>BudgetTracker</h3>
                 <p>Gestor de presupuesto personal.</p>
                 <a href="https://github.com/JGR2563/budgettracker" target="_blank">Ver Proyecto</a>
             </div>
             <div class="project-card">
+                <img src="https://via.placeholder.com/300" alt="RecipeFinder" class="project-image">
                 <h3>RecipeFinder</h3>
                 <p>Aplicación para encontrar recetas.</p>
                 <a href="https://github.com/JGR2563/recipefinder" target="_blank">Ver Proyecto</a>
+            </div>
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-image">
+                    <img src="img/projects/portfolio.jpg" alt="Portfolio Personal" loading="lazy">
+                    <div class="project-overlay">
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Portfolio Personal</h3>
+                    <p>Mi sitio web personal que muestra mis proyectos y habilidades como desarrollador.</p>
+                    <div class="project-links">
+                        <a href="https://jgr2563.github.io" target="_blank" class="btn-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="https://github.com/JGR2563/JGR2563.github.io" target="_blank" class="btn-link"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -113,65 +132,29 @@
     <!-- Skills Section -->
     <section id="habilidades" class="skills">
         <h2>Mis Habilidades</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Frontend</h3>
-                <div class="skill-items">
-                    <div class="skill-item">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-js"></i>
-                        <span>JavaScript</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Add more skill categories as needed -->
+        <div class="skill-items">
+            <div class="skill-item"><i class="fab fa-html5"></i><p>HTML</p></div>
+            <div class="skill-item"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+            <div class="skill-item"><i class="fab fa-js"></i><p>JavaScript</p></div>
+            <div class="skill-item"><i class="fab fa-react"></i><p>React</p></div>
+            <div class="skill-item"><i class="fab fa-node"></i><p>Node.js</p></div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contacto" class="contact">
         <h2>Contacto</h2>
-        <div class="contact-content">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>email@ejemplo.com</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <p>LinkedIn</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <p>GitHub</p>
-                </div>
-            </div>
-            <form id="contact-form" class="contact-form">
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Mensaje" required></textarea>
-                <button type="submit" class="btn primary">Enviar Mensaje</button>
-            </form>
-        </div>
+        <form id="contactForm">
+            <input type="text" placeholder="Tu Nombre" required>
+            <input type="email" placeholder="Tu Correo" required>
+            <textarea placeholder="Tu Mensaje" required></textarea>
+            <button type="submit" class="btn primary">Enviar</button>
+        </form>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Gabriel Ruñiski - Todos los derechos reservados</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
