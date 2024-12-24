@@ -183,11 +183,22 @@ function reveal() {
 }
 
 // Loader
-window.addEventListener('load', () => {
-    const loader = document.querySelector('.loader');
-    loader.classList.add('hidden');
-    setTimeout(() => loader.remove(), 1000);
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const loader = document.querySelector('.loader');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                if (loader.parentNode) {
+                    loader.parentNode.removeChild(loader);
+                }
+            }, 1000);
+        }
+    }, 1500);
 });
+
+// GSAP Animations
+gsap.registerPlugin(ScrollTrigger);
 
 // Custom Cursor
 const cursor = document.querySelector('.cursor');
@@ -214,9 +225,6 @@ links.forEach(link => {
         cursorFollower.style.transform = 'scale(1)';
     });
 });
-
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
 
 // Navbar Background
 ScrollTrigger.create({

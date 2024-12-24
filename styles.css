@@ -33,6 +33,12 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .loader svg {
