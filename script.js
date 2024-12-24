@@ -183,18 +183,12 @@ function reveal() {
 }
 
 // Loader
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('hidden');
     setTimeout(() => {
-        const loader = document.querySelector('.loader');
-        if (loader) {
-            loader.classList.add('hidden');
-            setTimeout(() => {
-                if (loader.parentNode) {
-                    loader.parentNode.removeChild(loader);
-                }
-            }, 1000);
-        }
-    }, 1500);
+        preloader.style.display = 'none';
+    }, 500);
 });
 
 // GSAP Animations
