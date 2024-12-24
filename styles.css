@@ -464,15 +464,16 @@ body {
 
 .about-image {
     position: relative;
-    width: 100%;
-    max-width: 400px;
+    width: 300px;
+    height: 300px;
     margin: 0 auto;
 }
 
 .profile-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 50%;
+    object-fit: cover;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
@@ -495,6 +496,13 @@ body {
 
 .about-image:hover .image-overlay {
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        width: 250px;
+        height: 250px;
+    }
 }
 
 /* Contact Section */
