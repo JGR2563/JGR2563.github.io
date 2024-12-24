@@ -181,3 +181,201 @@ function reveal() {
         }
     }
 }
+
+// Loader
+window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader');
+    loader.classList.add('hidden');
+    setTimeout(() => loader.remove(), 1000);
+});
+
+// Custom Cursor
+const cursor = document.querySelector('.cursor');
+const cursorFollower = document.querySelector('.cursor-follower');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    
+    cursorFollower.style.left = e.clientX + 'px';
+    cursorFollower.style.top = e.clientY + 'px';
+});
+
+// Hover effect on links
+const links = document.querySelectorAll('a, button');
+links.forEach(link => {
+    link.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(1.5)';
+        cursorFollower.style.transform = 'scale(1.5)';
+    });
+    
+    link.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        cursorFollower.style.transform = 'scale(1)';
+    });
+});
+
+// GSAP Animations
+gsap.registerPlugin(ScrollTrigger);
+
+// Navbar Background
+ScrollTrigger.create({
+    start: 'top -80',
+    end: 99999,
+    toggleClass: {
+        className: 'navbar--scrolled',
+        targets: '.navbar'
+    }
+});
+
+// Hero Animations
+gsap.from('.hero-title .gradient-text', {
+    duration: 1,
+    y: 100,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 0.5
+});
+
+gsap.from('.hero-title .outline-text', {
+    duration: 1,
+    y: 100,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 0.7
+});
+
+gsap.from('.hero-subtitle', {
+    duration: 1,
+    y: 50,
+    opacity: 0,
+    ease: 'power4.out',
+    delay: 0.9
+});
+
+// Scroll Animations
+const workItems = gsap.utils.toArray('.work-item');
+workItems.forEach((item, i) => {
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: item,
+            start: 'top bottom-=100',
+            toggleActions: 'play none none reverse'
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power4.out',
+        delay: i * 0.2
+    });
+});
+
+// About Section Animation
+gsap.from('.about-text', {
+    scrollTrigger: {
+        trigger: '.about-text',
+        start: 'top bottom-=100',
+        toggleActions: 'play none none reverse'
+    },
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    ease: 'power4.out'
+});
+
+gsap.from('.about-image', {
+    scrollTrigger: {
+        trigger: '.about-image',
+        start: 'top bottom-=100',
+        toggleActions: 'play none none reverse'
+    },
+    x: 100,
+    opacity: 0,
+    duration: 1,
+    ease: 'power4.out'
+});
+
+// Skills Animation
+const skills = document.querySelectorAll('.skill-bar');
+skills.forEach(skill => {
+    const level = skill.dataset.level;
+    gsap.to(skill, {
+        scrollTrigger: {
+            trigger: skill,
+            start: 'top bottom-=100',
+            toggleActions: 'play none none reverse'
+        },
+        '--level': `${level}%`,
+        duration: 1.5,
+        ease: 'power4.out'
+    });
+});
+
+// Contact Form Animation
+const formGroups = gsap.utils.toArray('.form-group');
+formGroups.forEach((group, i) => {
+    gsap.from(group, {
+        scrollTrigger: {
+            trigger: group,
+            start: 'top bottom-=50',
+            toggleActions: 'play none none reverse'
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: i * 0.2,
+        ease: 'power4.out'
+    });
+});
+
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: {
+                    y: target,
+                    offsetY: 80
+                },
+                ease: 'power4.inOut'
+            });
+        }
+    });
+});
+
+// Work Item Hover Effect
+workItems.forEach(item => {
+    const color = item.dataset.color;
+    const image = item.querySelector('img');
+    
+    item.addEventListener('mouseenter', () => {
+        gsap.to(image, {
+            scale: 1.1,
+            duration: 0.5,
+            ease: 'power2.out'
+        });
+        
+        gsap.to(item, {
+            backgroundColor: color,
+            duration: 0.5,
+            ease: 'power2.out'
+        });
+    });
+    
+    item.addEventListener('mouseleave', () => {
+        gsap.to(image, {
+            scale: 1,
+            duration: 0.5,
+            ease: 'power2.out'
+        });
+        
+        gsap.to(item, {
+            backgroundColor: '#111',
+            duration: 0.5,
+            ease: 'power2.out'
+        });
+    });
+});
